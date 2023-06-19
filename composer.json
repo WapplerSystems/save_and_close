@@ -1,0 +1,19 @@
+{
+  "name": "wapplersystems/save_and_close",
+  "type": "typo3-cms-extension",
+  "description": "Adds save and close button to all the content elements for TYPO3",
+  "license": "GPL-2.0+",
+  "autoload": {
+    "psr-4": {
+      "WapplerSystems\\SaveAndClose\\": "Classes/"
+    }
+  },
+  "require": {
+    "typo3/cms-core": "^12.0"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "save_and_close"
+    }
+  }
+}
