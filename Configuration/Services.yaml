@@ -7,3 +7,8 @@ services:
   WapplerSystems\SaveAndClose\:
     resource: '../Classes/*'
 
+  WapplerSystems\SaveAndClose\EventListener\AddButton:
+    tags:
+      - name: event.listener
+        identifier: 'saveAndClose'
+        event: TYPO3\CMS\Backend\Template\Components\ModifyButtonBarEvent
