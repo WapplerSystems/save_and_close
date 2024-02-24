@@ -13,7 +13,9 @@ use TYPO3\CMS\Backend\Template\Components\Buttons\InputButton;
 
 class AddButton
 {
-
+    /**
+     * @param ModifyButtonBarEvent $event
+     */
     public function __invoke(ModifyButtonBarEvent $event): void {
 
         $showSaveAndView = GeneralUtility::makeInstance(ExtensionConfiguration::class)
