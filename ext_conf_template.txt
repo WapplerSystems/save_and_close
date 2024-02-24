@@ -1,4 +1,3 @@
-
 # cat=Backend; type=boolean; label=Activate "Save and close" button
 saveAndClose = 1
 
