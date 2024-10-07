@@ -8,10 +8,10 @@ $EM_CONF['save_and_close'] = [
     'author_email' => 'typo3@wappler.systems',
     'state' => 'stable',
     'uploadfolder' => false,
-    'version' => '12.0.3',
+    'version' => '13.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.4.0-12.4.99',
+            'typo3' => '13.0.0-13.4.99',
         ],
         'conflicts' => [],
         'suggests' => [],
