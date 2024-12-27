@@ -56,7 +56,7 @@ class AddButton
             }
 
             if ($showSaveAndNew === '1') {
-                $saveViewButton = $buttonBar->makeInputButton()
+                $saveNewButton = $buttonBar->makeInputButton()
                     ->setName('_savedoknew')
                     ->setValue('1')
                     ->setForm($saveButton->getForm())
