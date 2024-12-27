@@ -22,6 +22,9 @@ class AddButton
             ->get('save_and_close', 'saveAndView');
         $showSaveAndClose = GeneralUtility::makeInstance(ExtensionConfiguration::class)
             ->get('save_and_close', 'saveAndClose');
+        $showSaveAndNew = GeneralUtility::makeInstance(ExtensionConfiguration::class)
+            ->get('save_and_close', 'saveAndNew');
+
 
         $buttons = $event->getButtons();
         $buttonBar = $event->getButtonBar();
@@ -52,6 +55,16 @@ class AddButton
                 $buttons[ButtonBar::BUTTON_POSITION_LEFT][2][] = $saveViewButton;
             }
 
+            if ($showSaveAndNew === '1') {
+                $saveViewButton = $buttonBar->makeInputButton()
+                    ->setName('_savedoknew')
+                    ->setValue('1')
+                    ->setForm($saveButton->getForm())
+                    ->setTitle($this->getLanguageService()->sL('LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:rm.saveNewDoc'))
+                    ->setIcon($iconFactory->getIcon('actions-document-save-new', Icon::SIZE_SMALL))
+                    ->setShowLabelText(true);
+                $buttons[ButtonBar::BUTTON_POSITION_LEFT][2][] = $saveNewButton;
+            }
         }
         $event->setButtons($buttons);
 

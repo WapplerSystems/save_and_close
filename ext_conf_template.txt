@@ -3,3 +3,6 @@ saveAndClose = 1
 
 # cat=Backend; type=boolean; label=Activate "Save and view" button
 saveAndView = 1
+
+# cat=Backend; type=boolean; label=Activate "Save and new" button
+saveAndNew = 1
