@@ -7,7 +7,7 @@ services:
   WapplerSystems\SaveAndClose\:
     resource: '../Classes/*'
 
-  WapplerSystems\SaveAndClose\EventListener\AddButton:
+  WapplerSystems\SaveAndClose\EventListener\SaveCloseButtonEventListener:
     tags:
       - name: event.listener
         identifier: 'saveAndClose'
