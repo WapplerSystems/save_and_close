@@ -1,37 +1,43 @@
 {
-	"name": "wapplersystems/save_and_close",
-	"type": "typo3-cms-extension",
-	"description": "Adds save and close button to all the content elements for TYPO3",
-	"license": "GPL-2.0+",
-	"keywords": [
-		"TYPO3",
-		"extension",
-		"save",
-		"close"
-	],
-	"authors": [
-		{
-			"name": "Sven Wappler",
-			"role": "Developer",
-			"homepage": "https://wappler.systems"
-		},
-		{
-			"name": "Mainbird",
-			"role": "Developer",
-			"homepage": "https://github.com/Mainbird"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"WapplerSystems\\SaveAndClose\\": "Classes/"
-		}
-	},
-	"require": {
-		"typo3/cms-core": "^13.3"
-	},
-	"extra": {
-		"typo3/cms": {
-			"extension-key": "save_and_close"
-		}
-	}
+    "name": "wapplersystems/save_and_close",
+    "type": "typo3-cms-extension",
+    "description": "Adds save and close button to all the content elements for TYPO3",
+    "homepage": "https://github.com/WapplerSystems/save_and_close",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "TYPO3",
+        "extension",
+        "save",
+        "close"
+    ],
+    "authors": [
+        {
+            "name": "Sven Wappler",
+            "email": "typo3@wappler.systems",
+            "role": "Developer",
+            "homepage": "https://wappler.systems"
+        },
+        {
+            "name": "Mainbird",
+            "role": "Developer",
+            "homepage": "https://github.com/Mainbird"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/WapplerSystems/save_and_close/issues",
+        "source": "https://github.com/WapplerSystems/save_and_close"
+    },
+    "require": {
+        "typo3/cms-core": "^13.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "WapplerSystems\\SaveAndClose\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "save_and_close"
+        }
+    }
 }
