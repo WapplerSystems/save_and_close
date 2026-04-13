@@ -4,15 +4,19 @@ namespace WapplerSystems\SaveAndClose\EventListener;
 
 use TYPO3\CMS\Backend\Template\Components\ButtonBar;
 use TYPO3\CMS\Backend\Template\Components\ModifyButtonBarEvent;
+use TYPO3\CMS\Backend\Template\Components\Buttons\InputButton;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Imaging\IconSize;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Page\PageRenderer;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Backend\Template\Components\Buttons\InputButton;
 
-final class SaveCloseButtonEventListener
+final readonly class SaveCloseButtonEventListener
 {
+    public function __construct(
+        private IconFactory $iconFactory,
+        private PageRenderer $pageRenderer,
+    ) {}
+
     public function __invoke(ModifyButtonBarEvent $event): void
     {
         $buttons = $event->getButtons();
@@ -20,11 +24,9 @@ final class SaveCloseButtonEventListener
         $saveButton = $buttons[ButtonBar::BUTTON_POSITION_LEFT][2][0] ?? null;
 
         if ($saveButton instanceof InputButton) {
-            $iconFactory = GeneralUtility::makeInstance(IconFactory::class);
-            $language = $this->getLanguageService();
-            $title = $language ? $language->sL(
+            $title = $this->getLanguageService()?->sL(
                 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:rm.saveCloseDoc'
-            ) : 'save';
+            ) ?? 'Save and close';
 
             $saveCloseButton = $buttonBar->makeInputButton()
                 ->setName('_saveandclosedok')
@@ -34,21 +36,19 @@ final class SaveCloseButtonEventListener
                     'js' => 'save-and-close-button',
                 ])
                 ->setTitle($title)
-                ->setIcon($iconFactory->getIcon('actions-document-save-close', IconSize::SMALL))
+                ->setIcon($this->iconFactory->getIcon('actions-document-save-close', IconSize::SMALL))
                 ->setShowLabelText(true);
 
             $buttons[ButtonBar::BUTTON_POSITION_LEFT][2][] = $saveCloseButton;
         }
 
-        /** @var PageRenderer $pageRenderer */
-        $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
-        $pageRenderer->loadJavaScriptModule('@save_and_close/form/backend/SaveAndClose.js');
+        $this->pageRenderer->loadJavaScriptModule('@save_and_close/form/backend/SaveAndClose.js');
 
         $event->setButtons($buttons);
     }
 
-    protected function getLanguageService(): ?LanguageService
+    private function getLanguageService(): ?LanguageService
     {
-        return $GLOBALS['LANG'];
+        return $GLOBALS['LANG'] ?? null;
     }
 }
