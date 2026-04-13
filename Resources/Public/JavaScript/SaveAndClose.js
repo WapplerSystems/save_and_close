@@ -28,12 +28,9 @@ class SaveAndClose {
     import('@typo3/backend/form-engine.js').then((form) => {
       const btn = document.createElement('button')
       btn.type = 'button'
-      btn.className = 'btn btn-default'
+      btn.className = 'btn btn-primary'
 
-      const iconEl = saveButton.querySelector('typo3-backend-icon')
-      const iconHtml = iconEl
-        ? '<typo3-backend-icon identifier="actions-document-save-close" size="small"></typo3-backend-icon>'
-        : ''
+      const iconHtml = '<typo3-backend-icon identifier="actions-document-save-close" size="small"></typo3-backend-icon>'
       const closeLabel = closeButton.querySelector('.contextual-record-edit-button-label')?.textContent?.trim() || ''
       const saveLabel = saveButton.querySelector('.contextual-record-edit-button-label')?.textContent?.trim() || ''
       const label = saveLabel && closeLabel ? saveLabel + ' & ' + closeLabel : 'Save & Close'
